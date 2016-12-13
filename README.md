@@ -41,4 +41,48 @@ const store = createStore(dynamicCombineReducers({stateReducer, todoReducer},
   }
 ))
 
+class Foo extends Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+  componentDidMount() {
+    this.props.initial() // !!IMPORTANT, You should call dispatch to get new store by yourself
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.state.stateReducer !== this.props.state.stateReducer
+  }
+  render() {
+    return (
+      <div>
+        Page: Foo
+        <div>
+          <button onClick={ this.props.incretment }>{ this.props.state.stateReducer }</button>
+        </div>
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    state: state
+  }
+}
+
+const ConnectFoo = connect(
+  mapStateToProps,
+  {
+    initial: () => {
+      return {
+        type: '@@INIT'
+      }
+    },
+    incretment: () => {
+      return {
+        type: 'INCRETMENT'
+      }
+    }
+  }
+)(Foo)
+
 ```
