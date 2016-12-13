@@ -52,14 +52,14 @@ class Foo extends Component {
     this.props.initial() // !!IMPORTANT, You should call dispatch to get new store by yourself
   }
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.state.stateReducer !== this.props.state.stateReducer
+    return nextProps.state.sumReducer !== this.props.state.sumReducer
   }
   render() {
     return (
       <div>
         Page: Foo
         <div>
-          <button onClick={ this.props.incretment }>{ this.props.state.stateReducer }</button>
+          <button onClick={ this.props.incretment }>{ this.props.state.sumReducer }</button>
         </div>
       </div>
     )
