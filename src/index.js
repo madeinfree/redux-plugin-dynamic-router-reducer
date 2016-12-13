@@ -42,9 +42,10 @@ export const dynamicCombineReducers = (reducers: Object, options: ReactRouterCom
     const defaultReducer: Object = (state: Object = {}): Object => state
     bindRule.forEach((rule: ReactRouterCombineOptionsRule) => {
       if (!~isConbineCache.indexOf(rule.key)) {
-        if (self.location.pathname === rule.pathname) {
+        if (injectHistory.getCurrentLocation().pathname === rule.pathname) {
           finalReducers[rule.key] = cacheReducer[rule.key]
           isConbineCache = isConbineCache.concat(rule.key)
+          finalReducerKeys = Object.keys(finalReducers)
         }
       }
     })
