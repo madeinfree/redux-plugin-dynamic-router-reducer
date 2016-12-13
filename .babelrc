@@ -1,4 +1,16 @@
 {
-  "presets": [["es2015", { "loose": true, "modules": false }]],
-  "plugins": ["transform-flow-strip-types"]
+  "presets": [["es2015", { "loose": true, "modules": false }], "react"],
+  "plugins": ["transform-flow-strip-types"],
+  "env": {
+    "commonjs": {
+      "plugins": [
+        ["transform-es2015-modules-commonjs", { "loose": true }]
+      ]
+    },
+    "es": {
+      "plugins": [
+        "./build/use-lodash-es"
+      ]
+    }
+  }
 }
