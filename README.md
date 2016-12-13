@@ -31,6 +31,8 @@ function sumReducer(state = 0, action) {
   }
 }
 
+const history = browserHistory
+
 const store = createStore(dynamicCombineReducers({stateReducer, todoReducer},
   {
     dynamic: true,
@@ -38,7 +40,7 @@ const store = createStore(dynamicCombineReducers({stateReducer, todoReducer},
       { key: 'todoReducer', pathname: 'bar' },
       { key: 'sumReducer', pathname: 'foo' }
     ],
-    injectHistory: browserHistory
+    injectHistory: history
   }
 ))
 
