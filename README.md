@@ -7,6 +7,7 @@ Redux plugin for react router to run dynamic reducer
 ```javascript
 
 import { createStore, /* combineReducers */ } from 'redux'
+import { connect } from 'react-redux'
 
 import { dynamicCombineReducers } from 'redux-plugin-dynamic-router-reducer' // instead of combineReducers
 // required inport react router history
