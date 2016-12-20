@@ -9,7 +9,8 @@
   "scripts": {
     "test": "cross-env BABEL_ENV=commonjs jest",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build": "npm run build:commonjs"
+    "build": "npm run build:commonjs",
+    "prepublish": "rimraf ./lib && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
