@@ -1,6 +1,6 @@
 {
   "name": "redux-plugin-dynamic-router-reducer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Redux plugin for react router to run dynamic reducer",
   "main": "./lib/index.js",
   "files": [
