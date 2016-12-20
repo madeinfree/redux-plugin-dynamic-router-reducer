@@ -2,6 +2,12 @@
 
 Redux plugin for react router to run dynamic reducer
 
+## Installtion
+
+```javascript
+npm install redux-plugin-dynamic-router-reducer && history
+```
+
 ## Uses
 
 ```javascript
@@ -11,7 +17,7 @@ import { connect } from 'react-redux'
 
 import { dynamicCombineReducers } from 'redux-plugin-dynamic-router-reducer' // instead of combineReducers
 // required inport react router history
-import { browserHistory } from 'react-router'
+import { createHistory } from 'history'
 
 function todoReducer(state = [{ name: 'Bar', gender: 'boy' }], action) {
   switch(action.type) {
@@ -31,7 +37,7 @@ function sumReducer(state = 0, action) {
   }
 }
 
-const history = browserHistory
+const history = createHistory()
 
 const store = createStore(dynamicCombineReducers({stateReducer, todoReducer},
   {
