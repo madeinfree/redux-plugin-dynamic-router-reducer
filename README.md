@@ -17,7 +17,7 @@ import { connect } from 'react-redux'
 
 import { dynamicCombineReducers } from 'redux-plugin-dynamic-router-reducer' // instead of combineReducers
 // required inport react router history
-import { createHistory } from 'history'
+import createHistory from 'history/createBrowserHistory'
 
 function todoReducer(state = [{ name: 'Bar', gender: 'boy' }], action) {
   switch(action.type) {
